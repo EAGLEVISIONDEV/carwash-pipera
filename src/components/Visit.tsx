@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { business, images } from "@/lib/data";
-import { Reveal, ParallaxImage } from "@/components/motion";
+import { Reveal } from "@/components/motion";
 
 export function Visit() {
   return (
@@ -94,20 +94,20 @@ export function Visit() {
           </Reveal>
 
           <Reveal delay={0.1} className="relative min-h-[360px] lg:min-h-full">
-            <ParallaxImage className="absolute inset-0 h-full w-full">
+            <div className="media-frame absolute inset-0">
               <Image
                 src={images.wet}
                 alt="Mașină premium după spălare"
                 fill
+                quality={95}
                 sizes="(max-width:1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain object-center p-4 sm:p-6"
               />
-            </ParallaxImage>
-            <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="font-[family-name:var(--font-display)] text-3xl tracking-[0.1em] text-platinum-bright">
-                Strălucire. Fără compromis.
-              </p>
+              <div className="absolute bottom-0 left-0 right-0 z-[2] p-8">
+                <p className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-platinum-bright">
+                  Strălucire. Fără compromis.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>

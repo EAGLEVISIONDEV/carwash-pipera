@@ -104,7 +104,7 @@ export const processSteps = [
 
 /** Real location + local service imagery. */
 export const images = {
-  /** Ferrari at Car Wash Pipera — Instagram */
+  /** Ferrari at Car Wash Pipera — max quality */
   hero: "/hero.jpg",
   /** Active foam / hand wash */
   foam: "/foam.jpg",

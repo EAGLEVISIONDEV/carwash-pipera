@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Manrope } from "next/font/google";
+import { Syne, Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Cinzel({
+const display = Syne({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const body = Manrope({
@@ -18,10 +18,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#030303",
+  themeColor: "#050505",
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://carwash-pipera.vercel.app"),
   title: "Car Wash Pipera — Luxury Auto Care | Voluntari",
   description:
     "Spălătorie auto premium în Pipera: exterior, interior și detailing. Șoseaua București Nord 14, Voluntari. Zilnic 09:00–19:30. Tel. +40 743 664 665.",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
       "Strălucire de showroom în Pipera. Exterior, interior, detailing. Deschis zilnic 09:00–19:30.",
     locale: "ro_RO",
     type: "website",
-    images: [{ url: "/logo.png" }],
+    images: [{ url: "/hero.jpg" }],
   },
 };
 
