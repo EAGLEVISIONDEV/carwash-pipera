@@ -102,9 +102,10 @@ export const processSteps = [
   },
 ] as const;
 
-/** Cinematic wet-car / foam / detailing imagery (Unsplash HQ). */
+/** Real location + Unsplash detail shots. */
 export const images = {
-  hero: u("photo-1601362840469-723e91195e5a", 3600),
+  /** Ferrari at Carwash Pipera — official Instagram photo */
+  hero: "/hero.jpg",
   foam: u("photo-1558618666-fcd25c85f82e", 2800),
   wet: u("photo-1492144534655-ae79c964c9d7", 2800),
   detail: u("photo-1607860108855-64acf2078ed9", 2400),

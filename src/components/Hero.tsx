@@ -20,14 +20,14 @@ export function Hero() {
       <motion.div style={{ y }} className="absolute inset-0">
         <Image
           src={images.hero}
-          alt="Spălare auto premium"
+          alt="Ferrari la Car Wash Pipera"
           fill
           priority
           sizes="100vw"
-          className="object-cover animate-zoom"
+          className="object-cover object-[center_42%] animate-zoom md:object-[center_38%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-void/80 via-void/50 to-void" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(196,168,116,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-void/75 via-void/35 to-void" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void/70 via-void/25 to-transparent" />
       </motion.div>
 
       <motion.div
