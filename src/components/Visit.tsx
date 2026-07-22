@@ -1,29 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import { business, images } from "@/lib/data";
+import { Reveal, ParallaxImage } from "@/components/motion";
 
 export function Visit() {
   return (
-    <section id="vizita" className="relative scroll-mt-20 py-20 md:py-28">
+    <section id="vizita" className="relative scroll-mt-24 py-24 md:py-32">
       <div className="section-pad mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.28em] text-aqua">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-champagne">
               Vizită
             </p>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-5xl tracking-wide text-chrome-bright md:text-6xl">
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl tracking-[0.08em] text-platinum-bright md:text-5xl">
               Ne găsești în Pipera
             </h2>
-            <p className="mt-4 max-w-md text-mist">
-              Locație accesibilă pe Șoseaua București Nord — aproape de birouri,
-              magazine și săli din zonă.
+            <p className="mt-5 max-w-md text-sm font-light leading-relaxed text-mist">
+              Pe Șoseaua București Nord — aproape de birouri, magazine și săli
+              din zonă.
             </p>
 
-            <dl className="mt-10 space-y-6">
+            <dl className="mt-12 space-y-8">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-aqua">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.28em] text-champagne">
                   Adresă
                 </dt>
-                <dd className="mt-2 text-chrome-bright">
+                <dd className="mt-2 text-platinum-bright">
                   {business.address.line1}
                   <br />
                   {business.address.city}, {business.address.county}{" "}
@@ -31,10 +34,10 @@ export function Visit() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-aqua">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.28em] text-champagne">
                   Program
                 </dt>
-                <dd className="mt-2 text-chrome-bright">
+                <dd className="mt-2 text-platinum-bright">
                   {business.hours.map((h) => (
                     <div key={h.days}>
                       {h.days}: {h.time}
@@ -43,27 +46,27 @@ export function Visit() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-aqua">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.28em] text-champagne">
                   Telefon
                 </dt>
                 <dd className="mt-2">
                   <a
                     href={`tel:${business.phone}`}
-                    className="text-lg font-semibold text-chrome-bright transition hover:text-aqua"
+                    className="font-[family-name:var(--font-display)] text-2xl tracking-[0.08em] text-platinum-bright transition hover:text-champagne"
                   >
                     {business.phoneDisplay}
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-aqua">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.28em] text-champagne">
                   Facilități
                 </dt>
-                <dd className="mt-3 flex flex-wrap gap-2">
+                <dd className="mt-4 flex flex-wrap gap-2">
                   {business.amenities.map((a) => (
                     <span
                       key={a}
-                      className="border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-mist"
+                      className="border border-white/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-mist"
                     >
                       {a}
                     </span>
@@ -72,39 +75,41 @@ export function Visit() {
               </div>
             </dl>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap gap-3">
               <a
                 href={business.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-sm bg-aqua px-6 py-3.5 text-sm font-semibold text-ink transition hover:bg-aqua-deep"
+                className="btn-primary inline-flex px-7 py-3.5 text-xs uppercase tracking-[0.18em]"
               >
-                Deschide în Google Maps
+                Google Maps
               </a>
               <a
                 href={`tel:${business.phone}`}
-                className="inline-flex items-center justify-center rounded-sm border border-chrome/25 px-6 py-3.5 text-sm font-semibold text-chrome-bright transition hover:border-aqua/50 hover:text-aqua"
+                className="btn-ghost inline-flex px-7 py-3.5 text-xs uppercase tracking-[0.18em]"
               >
                 Sună acum
               </a>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative min-h-[320px] overflow-hidden lg:min-h-full">
-            <Image
-              src={images.wet}
-              alt="Mașină premium după spălare"
-              fill
-              sizes="(max-width:1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-asphalt via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="font-[family-name:var(--font-display)] text-3xl tracking-wide text-chrome-bright">
+          <Reveal delay={0.1} className="relative min-h-[360px] lg:min-h-full">
+            <ParallaxImage className="absolute inset-0 h-full w-full">
+              <Image
+                src={images.wet}
+                alt="Mașină premium după spălare"
+                fill
+                sizes="(max-width:1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </ParallaxImage>
+            <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <p className="font-[family-name:var(--font-display)] text-3xl tracking-[0.1em] text-platinum-bright">
                 Strălucire. Fără compromis.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

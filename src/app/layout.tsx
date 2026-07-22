@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Manrope } from "next/font/google";
+import { Cinzel, Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Bebas_Neue({
+const display = Cinzel({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const body = Manrope({
@@ -18,19 +18,24 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#07090b",
+  themeColor: "#030303",
 };
 
 export const metadata: Metadata = {
-  title: "Car Wash Pipera — Spălătorie Auto | Voluntari",
+  title: "Car Wash Pipera — Luxury Auto Care | Voluntari",
   description:
-    "Spălătorie auto în Pipera: exterior, interior și detailing. Șoseaua București Nord 14, Voluntari. Zilnic 09:00–19:30. Tel. +40 743 664 665.",
+    "Spălătorie auto premium în Pipera: exterior, interior și detailing. Șoseaua București Nord 14, Voluntari. Zilnic 09:00–19:30. Tel. +40 743 664 665.",
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
-    title: "Car Wash Pipera — Strălucire de showroom",
+    title: "Car Wash Pipera — Luxury Auto Care",
     description:
-      "Spălare auto profesională în Pipera. Exterior, interior, detailing. Deschis zilnic 09:00–19:30.",
+      "Strălucire de showroom în Pipera. Exterior, interior, detailing. Deschis zilnic 09:00–19:30.",
     locale: "ro_RO",
     type: "website",
+    images: [{ url: "/logo.png" }],
   },
 };
 

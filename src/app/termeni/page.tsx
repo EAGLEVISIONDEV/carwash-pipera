@@ -20,7 +20,7 @@ export default function TermeniPage() {
       <p>
         Programul publicat: {business.hours[0].days}, {business.hours[0].time}.
         Pot exista modificări ocazionale; pentru confirmare, sună la{" "}
-        <a href={`tel:${business.phone}`} className="text-aqua hover:underline">
+        <a href={`tel:${business.phone}`} className="text-champagne hover:text-champagne-bright underline-offset-2 hover:underline">
           {business.phoneDisplay}
         </a>
         .

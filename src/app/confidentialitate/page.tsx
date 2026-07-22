@@ -15,26 +15,26 @@ export default function ConfidentialitatePage() {
         datelor publicate aici).
       </p>
       <p>
-        <strong className="text-chrome">Date de contact publicate:</strong>{" "}
+        <strong className="text-platinum-bright">Date de contact publicate:</strong>{" "}
         telefon, adresă, program și linkuri către Google Maps / Instagram. Aceste
         date sunt publice și destinate clienților.
       </p>
       <p>
-        <strong className="text-chrome">Date colectate de site:</strong> acest
+        <strong className="text-platinum-bright">Date colectate de site:</strong> acest
         site nu are formular de contact și nu creează conturi de utilizator. Pot
         exista jurnale tehnice de server (IP, tip browser) generate automat de
         infrastructura de hosting, folosite pentru securitate și funcționare.
       </p>
       <p>
-        <strong className="text-chrome">Cookie-uri:</strong> vezi pagina{" "}
-        <a href="/cookies" className="text-aqua hover:underline">
+        <strong className="text-platinum-bright">Cookie-uri:</strong> vezi pagina{" "}
+        <a href="/cookies" className="text-champagne hover:text-champagne-bright underline-offset-2 hover:underline">
           Cookies
         </a>
         .
       </p>
       <p>
         Pentru întrebări legate de date personale, contactează-ne la{" "}
-        <a href={`tel:${business.phone}`} className="text-aqua hover:underline">
+        <a href={`tel:${business.phone}`} className="text-champagne hover:text-champagne-bright underline-offset-2 hover:underline">
           {business.phoneDisplay}
         </a>
         .

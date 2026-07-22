@@ -4,9 +4,9 @@ const u = (id: string, w = 3200) =>
 export const business = {
   name: "Car Wash Pipera",
   shortName: "CAR WASH PIPERA",
-  tagline: "Strălucire de showroom. În Pipera.",
+  tagline: "Luxury auto care. În Pipera.",
   description:
-    "Spălătorie auto în Pipera — exterior, interior și detailing. Șoseaua București Nord 14, Voluntari. Deschis zilnic 09:00–19:30.",
+    "Îngrijire auto premium în Pipera — exterior, interior și detailing. Șoseaua București Nord 14, Voluntari. Deschis zilnic 09:00–19:30.",
   phone: "+40743664665",
   phoneDisplay: "+40 743 664 665",
   address: {

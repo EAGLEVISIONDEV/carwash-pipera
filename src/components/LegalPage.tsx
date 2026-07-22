@@ -17,14 +17,14 @@ export function LegalPage({
         <article className="section-pad mx-auto max-w-3xl py-12">
           <Link
             href="/"
-            className="text-sm font-medium text-aqua transition hover:text-aqua-deep"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-champagne transition hover:text-champagne-bright"
           >
             ← Înapoi
           </Link>
-          <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl tracking-wide text-chrome-bright">
+          <h1 className="mt-8 font-[family-name:var(--font-display)] text-4xl tracking-[0.08em] text-platinum-bright md:text-5xl">
             {title}
           </h1>
-          <div className="prose-legal mt-8 space-y-4 text-sm leading-relaxed text-mist">
+          <div className="mt-8 space-y-4 text-sm font-light leading-relaxed text-mist">
             {children}
           </div>
         </article>
