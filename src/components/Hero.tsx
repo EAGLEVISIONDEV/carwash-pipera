@@ -4,143 +4,179 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { business, images } from "@/lib/data";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden mesh-bg">
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-60" />
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-void">
+      {/* Cinematic showroom stage */}
+      <div className="absolute inset-0">
+        <Image
+          src="/hero-stage-bg.jpg"
+          alt=""
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-void via-void/70 to-void/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/50" />
+      </div>
 
-      <div className="section-pad relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-10 pb-28 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-16 lg:pt-24">
-        {/* Copy */}
-        <div className="relative z-10 order-2 lg:order-1">
+      <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-center gap-10 pb-24 pt-[calc(var(--header-h)+1.5rem)] lg:flex-row lg:items-center lg:gap-8 lg:pb-12 xl:gap-16">
+        {/* Brand column — restrained, Bentley-style */}
+        <div className="relative z-10 w-full max-w-xl shrink-0 lg:w-[42%]">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+            className="inline-flex items-center gap-3"
+          >
+            <span className="h-px w-8 bg-accent" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.42em] text-accent">
+              Pipera · Voluntari
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.95, delay: 0.12, ease }}
+            className="mt-6 font-[family-name:var(--font-display)] text-[clamp(3rem,9vw,5.75rem)] font-bold leading-[0.92] tracking-[-0.04em] text-platinum-bright"
+          >
+            CAR WASH
+            <span className="mt-1 block text-lux">PIPERA</span>
+          </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[11px] font-semibold uppercase tracking-[0.4em] text-accent"
+            transition={{ duration: 0.7, delay: 0.28, ease }}
+            className="mt-7 max-w-sm text-[15px] font-light leading-relaxed text-mist md:text-base"
           >
-            Voluntari · Pipera
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 font-[family-name:var(--font-display)] text-[clamp(2.6rem,8vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-platinum-bright"
-          >
-            CAR WASH
-            <br />
-            <span className="text-lux">PIPERA</span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.9, delay: 0.45 }}
-            className="lux-line mt-6 max-w-[12rem] origin-left"
-          />
-
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.55 }}
-            className="mt-6 max-w-md text-base font-light leading-relaxed text-mist md:text-lg"
-          >
-            {business.tagline} Exterior, interior și detailing — zilnic{" "}
-            {business.hours[0].time}.
+            Luxury auto care în fața ta. Exterior, interior, detailing —
+            mașina iese ca din showroom.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.4, ease }}
             className="mt-9 flex flex-wrap gap-3"
           >
             <a
               href={`tel:${business.phone}`}
-              className="btn-primary inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.18em]"
+              className="btn-primary inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase tracking-[0.2em]"
             >
-              Sună · {business.phoneDisplay}
+              Sună acum
             </a>
             <a
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.18em]"
+              className="btn-ghost inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase tracking-[0.2em]"
             >
-              Direcții pe hartă
+              Direcții
             </a>
           </motion.div>
 
+          {/* Glass stats strip */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.7 }}
-            className="mt-12 flex flex-wrap items-center gap-6 text-sm text-mist"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.55, ease }}
+            className="mt-12 grid grid-cols-3 gap-px overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-xl"
           >
-            <div className="flex items-baseline gap-2">
-              <span className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-accent">
-                {business.rating}
-              </span>
-              <span className="text-xs tracking-wide">
-                / 5 · {business.reviewCount}+ Google
-              </span>
-            </div>
-            <span className="hidden h-4 w-px bg-white/15 sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.22em]">
-              Deschis zilnic
-            </span>
+            {[
+              { label: "Google", value: `${business.rating}` },
+              { label: "Recenzii", value: `${business.reviewCount}+` },
+              { label: "Program", value: "09–19:30" },
+            ].map((item) => (
+              <div key={item.label} className="px-3 py-4 text-center sm:px-4">
+                <p className="font-[family-name:var(--font-display)] text-xl font-semibold tracking-tight text-platinum-bright sm:text-2xl">
+                  {item.value}
+                </p>
+                <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-mist">
+                  {item.label}
+                </p>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Contained HQ photo — full car visible */}
+        {/* Photo stage — entire portrait image visible */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative order-1 lg:order-2"
+          initial={{ opacity: 0, x: 40, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.15, delay: 0.2, ease }}
+          className="relative z-10 w-full flex-1"
         >
+          {/* Soft light halo matching photo yellow/sky */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -inset-6 animate-pulse-glow rounded-[2rem] bg-[radial-gradient(circle,var(--accent-glow),transparent_68%)] blur-2xl md:-inset-10"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(240,208,0,0.16)_0%,rgba(56,120,200,0.08)_40%,transparent_70%)] blur-3xl"
           />
 
-          <div className="media-frame relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.55)] lg:max-w-none">
-            <Image
-              src={images.hero}
-              alt="Ferrari la Car Wash Pipera"
-              fill
-              priority
-              quality={100}
-              sizes="(max-width:1024px) 90vw, 48vw"
-              className="object-contain object-center p-2 sm:p-3"
-            />
-            <div className="absolute bottom-0 left-0 right-0 z-[2] p-5 sm:p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
-                La locație
-              </p>
-              <p className="mt-1 font-[family-name:var(--font-display)] text-lg tracking-wide text-platinum-bright sm:text-xl">
-                Strălucire de showroom
-              </p>
+          <div className="relative mx-auto w-full max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
+            {/* Thin tech frame */}
+            <div className="absolute -inset-[1px] bg-gradient-to-br from-accent/50 via-white/15 to-transparent opacity-80" />
+            <div className="relative bg-void p-[1px]">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a]">
+                <Image
+                  src={images.hero}
+                  alt="Ferrari la Car Wash Pipera"
+                  fill
+                  priority
+                  quality={100}
+                  sizes="(max-width:1024px) 92vw, 560px"
+                  className="object-contain object-center"
+                />
+              </div>
             </div>
+
+            {/* Floating caption chip — outside image, doesn't cover car */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85, duration: 0.6 }}
+              className="absolute -bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-3 border border-white/10 bg-void/85 px-4 py-3 backdrop-blur-xl sm:left-6 sm:right-auto sm:min-w-[240px]"
+            >
+              <div>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.28em] text-accent">
+                  Live on site
+                </p>
+                <p className="mt-0.5 text-sm font-medium text-platinum-bright">
+                  Ferrari · Pipera
+                </p>
+              </div>
+              <span className="hidden h-8 w-px bg-white/15 sm:block" />
+              <p className="hidden text-[10px] uppercase tracking-[0.16em] text-mist sm:block">
+                HQ photo
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </div>
 
+      {/* Bottom edge cue */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.1 }}
-        className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex"
+        transition={{ delay: 1.2 }}
+        className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block"
       >
-        <span className="text-[10px] uppercase tracking-[0.35em] text-mist/50">
-          Scroll
-        </span>
-        <motion.span
-          animate={{ y: [0, 8, 0], opacity: [0.3, 0.9, 0.3] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          className="h-9 w-px bg-gradient-to-b from-accent to-transparent"
-        />
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-[9px] uppercase tracking-[0.4em] text-mist/40">
+            Discover
+          </span>
+          <span className="h-8 w-px bg-gradient-to-b from-accent/80 to-transparent" />
+        </motion.div>
       </motion.div>
     </section>
   );

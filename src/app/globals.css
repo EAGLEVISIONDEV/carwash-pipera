@@ -189,6 +189,13 @@ img {
   );
 }
 
+/* Hero photo: no fade overlay — full image readable */
+.hero-frame {
+  position: relative;
+  overflow: hidden;
+  background: #050505;
+}
+
 .section-pad {
   padding-inline: 1.25rem;
 }
