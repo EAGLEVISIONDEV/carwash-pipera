@@ -1,6 +1,3 @@
-const u = (id: string, w = 3200) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=90&fm=jpg`;
-
 export const business = {
   name: "Car Wash Pipera",
   shortName: "CAR WASH PIPERA",
@@ -104,13 +101,15 @@ export const processSteps = [
 
 /** Real location + local service imagery. */
 export const images = {
-  /** Ferrari at Car Wash Pipera — max quality */
+  /** Ferrari at Car Wash Pipera — HQ enhanced */
   hero: "/hero.jpg",
-  /** Active foam / hand wash */
   foam: "/foam.jpg",
-  wet: u("photo-1492144534655-ae79c964c9d7", 2800),
-  detail: u("photo-1607860108855-64acf2078ed9", 2400),
-  interior: u("photo-1485291571150-772bcfc10da5", 2400),
-  /** Wet-shine finish */
+  wet: "/gallery-3.jpg",
+  detail: "/gallery-1.jpg",
+  interior: "/detail-interior.jpg",
   shine: "/shine.jpg",
+  gallery2: "/gallery-2.jpg",
+  gallery3: "/gallery-3.jpg",
+  gallery4: "/gallery-4.jpg",
+  gallery5: "/gallery-5.jpg",
 } as const;
